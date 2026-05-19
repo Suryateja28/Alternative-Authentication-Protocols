@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
+use MongoDB\Client as MongoClient;
 
 class FolderAuthenticationController extends Controller
 {
@@ -33,6 +34,15 @@ class FolderAuthenticationController extends Controller
             'folder_count' => $validated['folder_count'],
             'folder_sequence' => array_values($validated['sequence']),
             'is_admin' => User::query()->count() === 0,
+        ]);
+
+        $this->storeUserInMongo([
+            'name' => $user->name,
+            'email' => $user->email,
+            'folder_count' => $user->folder_count,
+            'folder_sequence' => $user->folder_sequence,
+            'is_admin' => $user->is_admin,
+            'registered_at' => now()->toDateTimeString(),
         ]);
 
         Auth::login($user);
@@ -152,6 +162,21 @@ class FolderAuthenticationController extends Controller
         return collect(range(0, $count - 1))
             ->map(fn (int $number) => 'folder-'.$number)
             ->all();
+    }
+
+    private function storeUserInMongo(array $payload): void
+    {
+        if (! class_exists(MongoClient::class)) {
+            return;
+        }
+
+        try {
+            $client = new MongoClient(env('MONGO_URI', 'mongodb://127.0.0.1:27017'));
+            $database = $client->selectDatabase(env('MONGO_DB', 'tradition_credential'));
+            $database->selectCollection('users')->insertOne($payload);
+        } catch (\Throwable $exception) {
+            // If MongoDB is unavailable, continue without breaking registration.
+        }
     }
 
     private function userPayload(User $user): array

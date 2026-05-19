@@ -56,6 +56,10 @@ Route::post('/api/ninthbox/login', [NinthBoxAuthController::class, 'login']);
 Route::post('/api/tenthbox/register', [TenthBoxAuthController::class, 'register']);
 Route::post('/api/tenthbox/login', [TenthBoxAuthController::class, 'login']);
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
 Route::get('/{any?}', function () {
     return view('welcome');
 })->where('any', '^(?!api).*$');

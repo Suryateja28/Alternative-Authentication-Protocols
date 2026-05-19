@@ -20,7 +20,6 @@ import SecondBoxScreen from './components/SecondBox/SecondBoxScreen';
 import ThirdBoxScreen from './components/ThirdBox/ThirdBoxScreen';
 import FourthBoxScreen from './components/FourthBox/FourthBoxScreen';
 import FifthBoxScreen from './components/FifthBox/FifthBoxScreen';
-import SixthBoxScreen from './components/SixthBox/SixthBoxScreen';
 import SeventhBoxScreen from './components/SeventhBox/SeventhBoxScreen';
 import EighthBoxScreen from './components/EighthBox/EighthBoxScreen';
 import NinthBoxScreen from './components/NinthBox/NinthBoxScreen';
@@ -50,11 +49,6 @@ const homeBoxes = [
     {
         title: 'Box 5',
         description: 'Color Sequence Protocol',
-        active: true,
-    },
-    {
-        title: 'Box 6',
-        description: 'Combination Lock Auth',
         active: true,
     },
     {
@@ -227,7 +221,6 @@ function App() {
                             onOpenThirdBox={() => handleSetScreen('third-box')}
                             onOpenFourthBox={() => handleSetScreen('fourth-box')}
                             onOpenFifthBox={() => handleSetScreen('fifth-box')}
-                            onOpenSixthBox={() => handleSetScreen('sixth-box')}
                             onOpenSeventhBox={() => handleSetScreen('seventh-box')}
                             onOpenEighthBox={() => handleSetScreen('eighth-box')}
                             onOpenNinthBox={() => handleSetScreen('ninth-box')}
@@ -245,8 +238,6 @@ function App() {
                         <FourthBoxScreen onBack={() => handleSetScreen('home')} />
                     ) : screen === 'fifth-box' ? (
                         <FifthBoxScreen onBack={() => handleSetScreen('home')} />
-                    ) : screen === 'sixth-box' ? (
-                        <SixthBoxScreen onBack={() => handleSetScreen('home')} />
                     ) : screen === 'seventh-box' ? (
                         <SeventhBoxScreen onBack={() => handleSetScreen('home')} />
                     ) : screen === 'eighth-box' ? (
@@ -285,17 +276,20 @@ function App() {
     );
 }
 
-function HomeScreen({ onOpenFirstBox, onOpenSecondBox, onOpenThirdBox, onOpenFourthBox, onOpenFifthBox, onOpenSixthBox, onOpenSeventhBox, onOpenEighthBox, onOpenNinthBox, onOpenTenthBox, onOpenCertificateAuth, addLog }) {
+function HomeScreen({ onOpenFirstBox, onOpenSecondBox, onOpenThirdBox, onOpenFourthBox, onOpenFifthBox, onOpenSeventhBox, onOpenEighthBox, onOpenNinthBox, onOpenTenthBox, onOpenCertificateAuth, addLog }) {
     return (
         <section className="mx-auto max-w-6xl px-8 py-12">
             <header className="mb-12 border-b border-white/10 pb-10">
                 <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-2 text-xs font-bold tracking-widest text-cyan-400 uppercase shadow-[0_0_15px_rgba(6,182,212,0.2)]">
                     <ShieldCheck size={16} className="text-cyan-400 drop-shadow-[0_0_5px_rgba(6,182,212,0.8)]" />
-                    Cyber-Security Prototype v1.0
+                    Alternative Auth Home v1.0
                 </div>
                 <h1 className="text-4xl font-black leading-tight sm:text-6xl tracking-tight text-white drop-shadow-xl">
-                    Alternative <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-fuchsia-500">Authentication</span> Protocols.
+                    Alternative <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-fuchsia-500">Authentication</span> Home
                 </h1>
+                <p className="mt-5 max-w-3xl text-sm leading-7 text-cyan-200/80 sm:text-base">
+                    A simple, visual homepage for the project that explains alternative authentication methods. Explore nine interactive security boxes and certificate verification in a clean UI.
+                </p>
             </header>
 
             <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
@@ -306,7 +300,6 @@ function HomeScreen({ onOpenFirstBox, onOpenSecondBox, onOpenThirdBox, onOpenFou
                     if (box.title === 'Box 3') clickHandler = onOpenThirdBox;
                     if (box.title === 'Box 4') clickHandler = onOpenFourthBox;
                     if (box.title === 'Box 5') clickHandler = onOpenFifthBox;
-                    if (box.title === 'Box 6') clickHandler = onOpenSixthBox;
                     if (box.title === 'Box 7') clickHandler = onOpenSeventhBox;
                     if (box.title === 'Box 8') clickHandler = onOpenEighthBox;
                     if (box.title === 'Box 9') clickHandler = onOpenNinthBox;
