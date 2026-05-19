@@ -14,6 +14,12 @@ import {
     Upload,
     Terminal as TerminalIcon,
     Cpu,
+    ShieldAlert,
+    Unlock,
+    Activity,
+    EyeOff,
+    Globe,
+    Github
 } from 'lucide-react';
 import FirstBoxScreen from './components/FirstBox/FirstBoxScreen';
 import SecondBoxScreen from './components/SecondBox/SecondBoxScreen';
@@ -52,22 +58,22 @@ const homeBoxes = [
         active: true,
     },
     {
-        title: 'Box 7',
+        title: 'Box 6',
         description: 'Emoji Story Auth',
         active: true,
     },
     {
-        title: 'Box 8',
+        title: 'Box 7',
         description: 'Directional Sequence Protocol',
         active: true,
     },
     {
-        title: 'Box 9',
+        title: 'Box 8',
         description: 'Pixel Grid Protocol',
         active: true,
     },
     {
-        title: 'Box 10',
+        title: 'Box 9',
         description: 'Morse Code Protocol',
         active: true,
     },
@@ -179,8 +185,170 @@ function BootSequence({ onComplete }) {
     );
 }
 
+function LandingPage({ onEnter }) {
+    return (
+        <div className="mx-auto flex h-full max-w-6xl flex-col items-center px-8 py-16 sm:py-24 relative z-10">
+            {/* Hero Section */}
+            <div className="text-center mb-24 mt-4 lg:mt-12 flex flex-col items-center">
+                <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-2 text-xs font-bold tracking-widest text-cyan-400 uppercase shadow-[0_0_15px_rgba(6,182,212,0.2)] animate-pulse">
+                    <ShieldCheck size={16} className="text-cyan-400 drop-shadow-[0_0_5px_rgba(6,182,212,0.8)]" />
+                    System Ready
+                </div>
+                <h1 className="text-5xl font-black leading-tight sm:text-7xl tracking-tight text-white drop-shadow-xl mb-6">
+                    Alternative <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-fuchsia-500">Authentication</span> Protocols
+                </h1>
+                <p className="max-w-2xl text-base leading-relaxed text-cyan-200/80 sm:text-lg mb-12">
+                    A cyber-security prototype exploring next-generation authentication paradigms. Step beyond traditional passwords and explore 9 unique interactive login experiences.
+                </p>
+                <button
+                    onClick={onEnter}
+                    className="group relative inline-flex items-center justify-center gap-3 overflow-hidden rounded-full bg-cyan-600 px-10 py-5 font-bold text-white transition-all hover:bg-cyan-500 hover:shadow-[0_0_40px_rgba(6,182,212,0.5)] focus:outline-none focus:ring-4 focus:ring-cyan-500/30"
+                >
+                    <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.2)_50%,transparent_75%)] bg-[length:250%_250%] animate-[shimmer_2s_infinite]" />
+                    <LockKeyhole size={20} className="relative z-10 group-hover:scale-110 transition-transform" />
+                    <span className="relative z-10 tracking-wider">ENTER PROTOCOLS</span>
+                </button>
+            </div>
+
+            {/* Problem Section */}
+            <div className="w-full mb-24 max-w-5xl mx-auto">
+                <div className="mb-12 text-center">
+                    <h2 className="text-3xl font-bold text-white mb-4">The Collapse of Traditional Credential Management</h2>
+                    <div className="w-24 h-1 bg-rose-500/50 mx-auto rounded-full mb-6"></div>
+                    <p className="text-cyan-200/80 text-base leading-relaxed text-left sm:text-center px-4 mb-6">
+                        The traditional credential management system fundamentally relies on "what you know"—static secrets like passwords, PINs, or security answers. As computing power grows exponentially and user behavior remains predictable, these systems have completely failed to protect user data. The burden is entirely placed on the user to create, remember, and manage highly complex alphanumeric strings across hundreds of accounts.
+                    </p>
+                    <p className="text-rose-200/60 text-sm leading-relaxed max-w-3xl mx-auto italic mb-8">
+                        This reliance on memory leads directly to the widespread security failures we see today. Password managers mitigate this, but they introduce a single point of failure. The traditional system is broken by design.
+                    </p>
+                </div>
+                
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="bg-black/40 border border-rose-500/20 p-6 rounded-2xl backdrop-blur-sm hover:border-rose-500/40 transition-colors">
+                        <LockKeyhole className="text-rose-400 mb-4" size={28} />
+                        <h3 className="text-lg font-bold text-white mb-2">Password Fatigue & Insecure Storage</h3>
+                        <p className="text-sm text-cyan-100/50 leading-relaxed">
+                            Users are forced to remember dozens of complex strings, inevitably leading to password reuse or insecure manual storage (e.g., sticky notes, plain text files, and unencrypted spreadsheets).
+                        </p>
+                    </div>
+                    <div className="bg-black/40 border border-rose-500/20 p-6 rounded-2xl backdrop-blur-sm hover:border-rose-500/40 transition-colors">
+                        <ShieldAlert className="text-rose-400 mb-4" size={28} />
+                        <h3 className="text-lg font-bold text-white mb-2">Lack of Auditing & Compliance</h3>
+                        <p className="text-sm text-cyan-100/50 leading-relaxed">
+                            Traditional systems lack granular tracking. You cannot easily audit who accessed what credential and when, making it nearly impossible to meet modern regulatory compliance challenges.
+                        </p>
+                    </div>
+                    <div className="bg-black/40 border border-rose-500/20 p-6 rounded-2xl backdrop-blur-sm hover:border-rose-500/40 transition-colors">
+                        <Globe className="text-rose-400 mb-4" size={28} />
+                        <h3 className="text-lg font-bold text-white mb-2">Inefficient Sharing</h3>
+                        <p className="text-sm text-cyan-100/50 leading-relaxed">
+                            Sending passwords over insecure communication channels like Slack or email exposes them permanently. Traditional platforms fail to offer secure, time-bound credential sharing.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            {/* Solution Section */}
+            <div className="w-full mb-24 max-w-5xl mx-auto">
+                <div className="mb-12 text-center">
+                    <h2 className="text-3xl font-bold text-white mb-4">How We Overcome These Vulnerabilities</h2>
+                    <div className="w-24 h-1 bg-emerald-500/50 mx-auto rounded-full mb-6"></div>
+                    <p className="text-cyan-200/80 text-base leading-relaxed text-left sm:text-center px-4 mb-6">
+                        Our innovations step completely away from the keyboard. By removing alphanumeric text entirely, we eliminate dictionary attacks, keylogging, and easily guessable patterns. We shift the authentication paradigm from "what you know" to "how you interact." 
+                    </p>
+                    <p className="text-emerald-200/60 text-sm leading-relaxed max-w-3xl mx-auto italic mb-8">
+                        This project prototypes nine unique alternative authentication methods leveraging human behavior, rhythmic timing, spatial reasoning, and dynamic environments.
+                    </p>
+                </div>
+                
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div className="bg-gradient-to-br from-emerald-900/20 to-transparent border border-emerald-500/20 p-6 rounded-2xl hover:border-emerald-500/40 transition-all group">
+                        <ShieldCheck className="text-emerald-400 mb-4 group-hover:scale-110 transition-transform" size={28} />
+                        <h3 className="text-base font-bold text-white mb-2">Secure Storage & SSO</h3>
+                        <p className="text-xs text-cyan-100/60">
+                            An innovative credential management system offers a highly secure encrypted vault. Integrating Single Sign-On (SSO) drastically reduces password fatigue.
+                        </p>
+                    </div>
+                    <div className="bg-gradient-to-br from-emerald-900/20 to-transparent border border-emerald-500/20 p-6 rounded-2xl hover:border-emerald-500/40 transition-all group">
+                        <Unlock className="text-emerald-400 mb-4 group-hover:scale-110 transition-transform" size={28} />
+                        <h3 className="text-base font-bold text-white mb-2">Role-Based Access Control</h3>
+                        <p className="text-xs text-cyan-100/60">
+                            Enforce the principle of least privilege. RBAC ensures users only have access to the credentials absolutely necessary for their specific role.
+                        </p>
+                    </div>
+                    <div className="bg-gradient-to-br from-emerald-900/20 to-transparent border border-emerald-500/20 p-6 rounded-2xl hover:border-emerald-500/40 transition-all group">
+                        <Activity className="text-emerald-400 mb-4 group-hover:scale-110 transition-transform" size={28} />
+                        <h3 className="text-base font-bold text-white mb-2">Audit Logs & Compliance</h3>
+                        <p className="text-xs text-cyan-100/60">
+                            Immutable, comprehensive audit logs track exactly who accessed what and when. This automated reporting is crucial for meeting strict compliance standards.
+                        </p>
+                    </div>
+                    <div className="bg-gradient-to-br from-emerald-900/20 to-transparent border border-emerald-500/20 p-6 rounded-2xl hover:border-emerald-500/40 transition-all group">
+                        <Globe className="text-emerald-400 mb-4 group-hover:scale-110 transition-transform" size={28} />
+                        <h3 className="text-base font-bold text-white mb-2">Safe Credential Sharing</h3>
+                        <p className="text-xs text-cyan-100/60">
+                            A modern system allows for encrypted, time-bound sharing between team members without ever exposing the raw password over insecure channels.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            {/* Resources Section */}
+            <div className="w-full mb-24">
+                <div className="mb-12 text-center">
+                    <h2 className="text-3xl font-bold text-white mb-4">Research & References</h2>
+                    <div className="w-24 h-1 bg-fuchsia-500/50 mx-auto rounded-full mb-6"></div>
+                    <p className="text-cyan-200/60 max-w-2xl mx-auto">
+                        External resources, statistics, and project links related to credential vulnerabilities and our approach.
+                    </p>
+                </div>
+                
+                <div className="flex flex-wrap justify-center gap-4">
+                    <a href="https://owasp.org/www-community/vulnerabilities/Password_Plaintext_Storage" target="_blank" rel="noreferrer" className="flex items-center gap-3 bg-black/40 border border-white/10 px-6 py-4 rounded-xl hover:border-fuchsia-500/50 hover:bg-fuchsia-900/10 transition-all">
+                        <Globe className="text-fuchsia-400" size={20} />
+                        <span className="text-sm font-semibold text-white">OWASP Password Vulnerabilities</span>
+                    </a>
+                    <a href="https://www.cisa.gov/secure-our-world/use-strong-passwords" target="_blank" rel="noreferrer" className="flex items-center gap-3 bg-black/40 border border-white/10 px-6 py-4 rounded-xl hover:border-fuchsia-500/50 hover:bg-fuchsia-900/10 transition-all">
+                        <Globe className="text-fuchsia-400" size={20} />
+                        <span className="text-sm font-semibold text-white">CISA Credential Guidelines</span>
+                    </a>
+                    <a href="https://github.com/Suryateja28/Alternative-Authentication-Protocols" target="_blank" rel="noreferrer" className="flex items-center gap-3 bg-black/40 border border-white/10 px-6 py-4 rounded-xl hover:border-cyan-500/50 hover:bg-cyan-900/10 transition-all">
+                        <Github className="text-cyan-400" size={20} />
+                        <span className="text-sm font-semibold text-white">Project GitHub Repository</span>
+                    </a>
+                </div>
+            </div>
+
+            {/* Call to action at bottom */}
+            <div className="mb-12">
+                <button
+                    onClick={onEnter}
+                    className="inline-flex items-center gap-2 border border-cyan-500/30 bg-black/50 px-6 py-3 rounded-full text-cyan-400 hover:bg-cyan-900/30 hover:border-cyan-400/50 transition-all shadow-[0_0_15px_rgba(6,182,212,0.1)]"
+                >
+                    <TerminalIcon size={16} />
+                    <span className="font-bold text-sm tracking-widest">INITIATE LIVE DEMO</span>
+                </button>
+            </div>
+        </div>
+    );
+}
+
 function App() {
-    const [screen, setScreen] = useState('home');
+    const [screen, setScreen] = useState(() => {
+        const path = window.location.pathname;
+        if (path.startsWith('/box1')) return 'first-box';
+        if (path.startsWith('/box2')) return 'second-box';
+        if (path.startsWith('/box3')) return 'third-box';
+        if (path.startsWith('/box4')) return 'fourth-box';
+        if (path.startsWith('/box5')) return 'fifth-box';
+        if (path.startsWith('/box6')) return 'seventh-box';
+        if (path.startsWith('/box7')) return 'eighth-box';
+        if (path.startsWith('/box8')) return 'ninth-box';
+        if (path.startsWith('/box9')) return 'tenth-box';
+        if (path.startsWith('/box0')) return 'certificate-auth';
+        if (path.startsWith('/home')) return 'home';
+        return 'landing';
+    });
     const [booted, setBooted] = useState(false);
     const [logs, setLogs] = useState([
         { time: new Date().toLocaleTimeString(), text: 'SYSTEM BOOT SEQUENCE... OK', type: 'info' },
@@ -188,12 +356,48 @@ function App() {
         { time: new Date().toLocaleTimeString(), text: 'WAITING FOR OPERATOR INPUT...', type: 'warning' },
     ]);
 
+    React.useEffect(() => {
+        const handlePopState = () => {
+            const path = window.location.pathname;
+            if (path.startsWith('/box1')) setScreen('first-box');
+            else if (path.startsWith('/box2')) setScreen('second-box');
+            else if (path.startsWith('/box3')) setScreen('third-box');
+            else if (path.startsWith('/box4')) setScreen('fourth-box');
+            else if (path.startsWith('/box5')) setScreen('fifth-box');
+            else if (path.startsWith('/box6')) setScreen('seventh-box');
+            else if (path.startsWith('/box7')) setScreen('eighth-box');
+            else if (path.startsWith('/box8')) setScreen('ninth-box');
+            else if (path.startsWith('/box9')) setScreen('tenth-box');
+            else if (path.startsWith('/box0')) setScreen('certificate-auth');
+            else if (path.startsWith('/home')) setScreen('home');
+            else setScreen('landing');
+        };
+        window.addEventListener('popstate', handlePopState);
+        return () => window.removeEventListener('popstate', handlePopState);
+    }, []);
+
     const addLog = (text, type = 'info') => {
         setLogs(prev => [...prev, { time: new Date().toLocaleTimeString(), text, type }]);
     };
 
     const handleSetScreen = (newScreen) => {
-        if (newScreen === 'home') addLog('NAVIGATING TO OVERVIEW DASHBOARD...', 'info');
+        let path = '/';
+        if (newScreen === 'first-box') path = '/box1';
+        else if (newScreen === 'second-box') path = '/box2';
+        else if (newScreen === 'third-box') path = '/box3';
+        else if (newScreen === 'fourth-box') path = '/box4';
+        else if (newScreen === 'fifth-box') path = '/box5';
+        else if (newScreen === 'seventh-box') path = '/box6';
+        else if (newScreen === 'eighth-box') path = '/box7';
+        else if (newScreen === 'ninth-box') path = '/box8';
+        else if (newScreen === 'tenth-box') path = '/box9';
+        else if (newScreen === 'certificate-auth') path = '/box0';
+        else if (newScreen === 'home') path = '/home';
+        
+        window.history.pushState({}, '', path);
+
+        if (newScreen === 'landing') addLog('RETURNING TO HOME PAGE...', 'info');
+        else if (newScreen === 'home') addLog('NAVIGATING TO OVERVIEW DASHBOARD...', 'info');
         else addLog(`INITIALIZING AUTH PROTOCOL: [${newScreen.toUpperCase()}]...`, 'warn');
         setScreen(newScreen);
     };
@@ -214,8 +418,11 @@ function App() {
                 </div>
 
                 <div className="flex-1 h-screen overflow-y-auto relative z-10 custom-scrollbar">
-                    {screen === 'home' ? (
+                    {screen === 'landing' ? (
+                        <LandingPage onEnter={() => handleSetScreen('home')} />
+                    ) : screen === 'home' ? (
                         <HomeScreen
+                            onBackToHome={() => handleSetScreen('landing')}
                             onOpenFirstBox={() => handleSetScreen('first-box')}
                             onOpenSecondBox={() => handleSetScreen('second-box')}
                             onOpenThirdBox={() => handleSetScreen('third-box')}
@@ -276,9 +483,17 @@ function App() {
     );
 }
 
-function HomeScreen({ onOpenFirstBox, onOpenSecondBox, onOpenThirdBox, onOpenFourthBox, onOpenFifthBox, onOpenSeventhBox, onOpenEighthBox, onOpenNinthBox, onOpenTenthBox, onOpenCertificateAuth, addLog }) {
+function HomeScreen({ onBackToHome, onOpenFirstBox, onOpenSecondBox, onOpenThirdBox, onOpenFourthBox, onOpenFifthBox, onOpenSeventhBox, onOpenEighthBox, onOpenNinthBox, onOpenTenthBox, onOpenCertificateAuth, addLog }) {
     return (
-        <section className="mx-auto max-w-6xl px-8 py-12">
+        <section className="mx-auto max-w-6xl px-8 py-12 relative">
+            <button
+                type="button"
+                onClick={onBackToHome}
+                className="absolute top-12 right-8 inline-flex items-center gap-2 rounded-lg border border-white/10 bg-black/40 px-4 py-2 font-semibold text-cyan-200 hover:bg-cyan-900/40 hover:border-cyan-500/50 transition-colors z-20 backdrop-blur-xl"
+            >
+                <ArrowLeft size={18} />
+                Home Page
+            </button>
             <header className="mb-12 border-b border-white/10 pb-10">
                 <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-2 text-xs font-bold tracking-widest text-cyan-400 uppercase shadow-[0_0_15px_rgba(6,182,212,0.2)]">
                     <ShieldCheck size={16} className="text-cyan-400 drop-shadow-[0_0_5px_rgba(6,182,212,0.8)]" />
@@ -300,10 +515,10 @@ function HomeScreen({ onOpenFirstBox, onOpenSecondBox, onOpenThirdBox, onOpenFou
                     if (box.title === 'Box 3') clickHandler = onOpenThirdBox;
                     if (box.title === 'Box 4') clickHandler = onOpenFourthBox;
                     if (box.title === 'Box 5') clickHandler = onOpenFifthBox;
-                    if (box.title === 'Box 7') clickHandler = onOpenSeventhBox;
-                    if (box.title === 'Box 8') clickHandler = onOpenEighthBox;
-                    if (box.title === 'Box 9') clickHandler = onOpenNinthBox;
-                    if (box.title === 'Box 10') clickHandler = onOpenTenthBox;
+                    if (box.title === 'Box 6') clickHandler = onOpenSeventhBox;
+                    if (box.title === 'Box 7') clickHandler = onOpenEighthBox;
+                    if (box.title === 'Box 8') clickHandler = onOpenNinthBox;
+                    if (box.title === 'Box 9') clickHandler = onOpenTenthBox;
                     // Example: if (box.title === 'Box 0') clickHandler = onOpenCertificateAuth; 
 
                     return (
